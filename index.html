@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCool AC Parts | Premium Car Air Conditioning Components</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* padding: 4rem 2rem; */
+            /* margin-bottom: 50px; */
+        }
+
+        .gradient-bg {
+            background: linear-gradient(to right, #1e3a8a, #2563eb);
+        }
+
+        .lang-selector {
+            border: 1px solid #ddd;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="font-roboto bg-gray-100">
+    <header class="bg-white shadow-md fixed w-full z-10 p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-extrabold text-blue-700">IOTA</h1>
+        <nav class="hidden lg:flex space-x-6">
+            <a href="#about" class="hover:text-blue-600 font-semibold">About Us</a>
+            <a href="#products" class="hover:text-blue-600 font-semibold">Products</a>
+            <a href="#contact" class="hover:text-blue-600 font-semibold">Contact</a>
+        </nav>
+        <select id="languageSwitcher" class="lang-selector">
+            <option value="en">English</option>
+            <option value="ru">Русский</option>
+        </select>
+    </header>
+
+    <section class="h-screen gradient-bg text-white flex flex-col justify-center items-center text-center">
+        <h1 class="text-6xl font-bold mb-4" data-en="Premium Car AC Parts" data-ru="Премиум автокондиционеры">Premium
+            Car AC Parts</h1>
+        <p class="text-lg max-w-2xl"
+            data-ru="Испытайте высокоэффективное охлаждение с нашими автомобильными компонентами кондиционирования воздуха мирового класса."
+            data-en="Experience high-performance cooling with our world-class automotive AC components.">Experience
+            high-performance cooling with our world-class automotive AC components.
+        </p>
+        <div class="flex space-x-4 mt-6">
+            <a href="#products"
+                class="bg-white text-blue-700 px-6 py-3 rounded-lg shadow-md hover:bg-gray-200 transition"
+                data-ru="Наши продукты" data-en="Our Products">Our
+                Products</a>
+            <a href="#contact"
+                class="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-700 transition"
+                data-ru="Связаться с нами" data-en="Contact Us">Contact
+                Us</a>
+        </div>
+    </section>
+
+    <div id="products" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8"
+                data-ru="Каталог деталей автомобильного кондиционера" data-en="Car AC Parts Catalog">Car AC Parts
+                Catalog</h1>
+
+            <!-- Search and Filter -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
+                <input type="text" id="search" placeholder="Search parts..."
+                    class="p-3 border border-gray-300 rounded-lg w-full md:w-2/3 focus:ring-2 focus:ring-blue-500">
+                <select id="categoryFilter"
+                    class="p-3 border border-gray-300 rounded-lg w-full md:w-1/3 focus:ring-2 focus:ring-blue-500">
+                    <option value="all" data-ru="Все категории" data-en="All Categories">All Categories</option>
+                    <option value="lacetti">Lacetti</option>
+                    <option value="cobalt">Cobalt</option>
+                    <option value="onix">Onix</option>
+                    <option value="tracker">Tracker</option>
+                </select>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden"
+            onclick="closeModal()">
+            <img id="modalImage" src="" alt="Full Image" class="max-w-full max-h-screen rounded-lg">
+        </div>
+    </div>
+
+    <section id="about" class="py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-blue-600 font-bold uppercase tracking-wide">Since 2010</span>
+                <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-4 mb-6" data-ru="О компании"
+                    data-en="About Us">
+                    About Us
+                </h2>
+                <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column - Image & Stats -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-blue-600/10 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500">
+                    </div>
+                    <img src="factory-image.jpg" alt="Our Factory"
+                        class="rounded-2xl relative z-10 shadow-xl transform group-hover:-translate-y-2 transition duration-500">
+
+                    <!-- Stats Overlay -->
+                    <div class="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-6 rounded-b-2xl z-20">
+                        <div class="grid grid-cols-3 divide-x divide-blue-200">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">15+</div>
+                                <div class="text-sm text-gray-600" data-en="Years Experience" data-ru="Лет опыта">Years
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">500+</div>
+                                <div class="text-sm text-gray-600" data-en="Clients" data-ru="Клиентов">Clients</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-600">ISO</div>
+                                <div class="text-sm text-gray-600" data-en="Certified" data-ru="Сертификат">9001</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Content -->
+                <div class="space-y-8">
+                    <!-- Company Intro -->
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-bold text-gray-900">
+                            <span class="text-blue-600">IOTA</span>
+                            <span data-en="Automotive Cooling Excellence" data-ru="Эксперты в автомобильном охлаждении">
+                                Automotive Cooling Excellence
+                            </span>
+                        </h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            <span
+                                data-en="As a leading manufacturer of automotive AC components, we combine precision engineering with innovative thermal solutions to deliver unmatched performance in vehicle climate control systems."
+                                data-ru="Как ведущий производитель автомобильных компонентов кондиционирования воздуха, мы сочетаем точное проектирование с инновационными тепловыми решениями для обеспечения непревзойденной производительности систем климат-контроля транспортных средств.">
+                                As a leading manufacturer of automotive AC components...
+                            </span>
+                        </p>
+                    </div>
+
+                    <!-- Quote Card -->
+                    <div class="border-l-4 border-blue-600 pl-6 py-4 bg-white shadow-sm">
+                        <blockquote class="text-xl italic text-gray-700">
+                            "{{Famous quote from your CEO}}"
+                        </blockquote>
+                        <div class="mt-4 flex items-center">
+                            <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
+                                👨💼
+                            </div>
+                            <div class="ml-4">
+                                <div class="font-bold">Joonha Hwang</div>
+                                <div class="text-sm text-blue-600">CEO & Founder</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Features Grid -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                🔧
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2" data-en="OEM Quality" data-ru="Качество OEM">
+                                OEM Quality
+                            </h4>
+                            <p class="text-gray-600 text-sm" data-en="Meeting strict automotive standards"
+                                data-ru="Соответствие строгим автомобильным стандартам">
+                                Meeting strict automotive standards
+                            </p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                🌍
+                            </div>
+                            <h4 class="text-lg font-semibold mb-2" data-en="Global Reach"
+                                data-ru="Глобальное присутствие">
+                                Global Reach
+                            </h4>
+                            <p class="text-gray-600 text-sm" data-en="Serving 25+ countries"
+                                data-ru="Обслуживание 25+ стран">
+                                Serving 25+ countries
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications & Partners -->
+            <div class="mt-16 text-center">
+                <h4 class="text-sm uppercase tracking-wide text-gray-500 mb-8" data-en="Trusted By"
+                    data-ru="Нам доверяют">
+                    Trusted By
+                </h4>
+                <div class="flex flex-wrap justify-center items-center gap-8 opacity-75">
+                    <!-- Add client logos here -->
+                    <img src="./images/gmlogo.png" class="h-12 w-auto grayscale hover:grayscale-0 transition">
+                    <img src="./images/gmlogo.png" class="h-10 w-auto grayscale hover:grayscale-0 transition">
+                    <img src="./images/gmlogo.png" class="h-14 w-auto grayscale hover:grayscale-0 transition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Contact Information -->
+                <div class="text-left">
+                    <h3 class="text-2xl font-semibold mb-4" data-ru="Свяжитесь с нами" data-en="Get in Touch">Get in
+                        Touch</h3>
+                    <p class="text-gray-300 mb-2"><strong data-en="📍 Address" data-ru="📍 Адрес">📍 Address:</strong>
+                        <span data-en="1 Vohid khaydarov str., Chirchiq, Tashkent region, Uzbekistan"
+                            data-ru="Узбекистан, Ташкентская область, г. Чирчик, ул. Вохида Хайдарова, 1">1 Vohid
+                            khaydarov str., Chirchiq, Tashkent
+                            region, Uzbekistan</span>
+                    </p>
+                    <p class="text-gray-300 mb-2"><strong data-en="📞 Phone" data-ru="📞 Телефон">📞 Phone:</strong>
+                        +998 94 245 0606</p>
+                    <p class="text-gray-300 mb-2"><strong data-ru="✉ Электронная почта" data-en="✉ Email">✉
+                            Email:</strong> <a href="mailto:info@iota.com"
+                            class="text-blue-400 hover:underline">joonha.hwang@iotauz.com</a></p>
+                    <p class="text-gray-300 mb-4"><strong data-ru="🕒 Часы работы:" data-en="🕒 Working Hours:">🕒
+                            Working Hours:</strong> <span data-en="Mon - Fri: 8 AM - 5 PM"
+                            data-ru="Пн - Пт: 8:00 - 17:00">Mon - Fri: 8 AM - 5 PM</span></p>
+                    <a href="tel:+998942450606"
+                        class="bg-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition inline-block"
+                        data-en="Call Now" data-ru="Позвоните сейчас">Call
+                        Now</a>
+                </div>
+                <!-- Map -->
+                <div>
+                    <iframe class="w-full h-72 rounded-lg shadow-lg" src="https://maps.google.com/embed" width="600"
+                        height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="About IOTA" data-ru="O IOTA">About IOTA</h3>
+                    <p class="text-gray-400"
+                        data-en="We specialize in manufacturing high-quality automotive air conditioning parts, ensuring durability and performance."
+                        data-ru="Мы специализируемся на производстве высококачественных деталей для автомобильных кондиционеров, гарантируя долговечность и производительность.">
+                        We specialize in manufacturing high-quality automotive air conditioning
+                        parts, ensuring durability and performance.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="Quick Links" data-ru="Быстрые ссылки">Quick Links
+                    </h3>
+                    <ul>
+                        <li><a href="#about" class="text-gray-400 hover:text-white" data-en="About Us"
+                                data-ru="О нас">About Us</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white" data-en="Our Products"
+                                data-ru="Наши продукты">Our Products</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white" data-en="Contact Us"
+                                data-ru="Связаться с нами">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4" data-en="Follow Us" data-ru="Подписывайтесь на нас">Follow Us
+                    </h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
+                        <a href="#" class="text-gray-400 hover:text-white">Twitter</a>
+                        <a href="#" class="text-gray-400 hover:text-white">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center">
+                <p class="text-gray-400" data-en="&copy; 2025 IOTA. All Rights Reserved."
+                    data-ru="&copy; IOTA 2025. Все права защищены.">&copy; 2025 IOTA. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="Full Image">
+    </div>
+
+    <script>
+        const products = [
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Picture1.jpg", price: "$200", partNo: "9507 6520", stock: "Available", remark: "High quality" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9507 6520.jpg", price: "$200", partNo: "9456 8299", stock: "Low stock", remark: "OEM part" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9456 8299.jpg", price: "$200", partNo: "4259 2568", stock: "In stock", remark: "Genuine part" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 5214 4957.jpg", price: "$150", partNo: "5214 4957", stock: "Available", remark: "Durable" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 9477 4929.jpg", price: "$150", partNo: "9477 4929", stock: "Limited", remark: "Certified" },
+            { name: "Onix", category: "onix", image: "./images/Cobalt 9477 4929.jpg", price: "$180", partNo: "9477 4929", stock: "In stock", remark: "Best seller" },
+            { name: "Tracker", category: "tracker", image: "./images/Cobalt 9477 4929.jpg", price: "$120", partNo: "9477 4929", stock: "Out of stock", remark: "Popular choice" },
+        ];
+
+        const productGrid = document.getElementById("productGrid");
+        const searchInput = document.getElementById("search");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const imageModal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        function renderProducts() {
+            productGrid.innerHTML = "";
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            const filteredProducts = products.filter(product =>
+                (selectedCategory === "all" || product.category === selectedCategory) &&
+                product.name.toLowerCase().includes(searchTerm)
+            );
+
+            filteredProducts.forEach(product => {
+                productGrid.innerHTML += `
+                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg cursor-pointer" onclick="openModal('${product.image}')">
+                    <h2 class="text-2xl text-blue-600 font-semibold mt-4">${product.name}</h2>
+                    <p class="text-gray-700"><strong>Part No:</strong> ${product.partNo}</p>
+                    <p class="text-gray-700"><strong>Price:</strong> ${product.price}</p>
+                    <p class="text-gray-700"><strong>Stock:</strong> ${product.stock}</p>
+                    <p class="text-gray-700"><strong>Remark:</strong> ${product.remark}</p>
+                </div>
+            `;
+            });
+        }
+
+        function openModal(imageSrc) {
+            modalImage.src = imageSrc;
+            imageModal.classList.remove("hidden");
+        }
+
+        function closeModal() {
+            imageModal.classList.add("hidden");
+        }
+
+        searchInput.addEventListener("input", renderProducts);
+        categoryFilter.addEventListener("change", renderProducts);
+        renderProducts();
+
+        const languageSwitcher = document.getElementById("languageSwitcher");
+
+        function switchLanguage(lang) {
+            document.querySelectorAll("[data-en]").forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+        }
+
+        languageSwitcher.addEventListener("change", (event) => {
+            switchLanguage(event.target.value);
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car AC Parts Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-6">Car AC Parts Catalog</h1>
+        
+        <!-- Search and Filter -->
+        <div class="flex flex-col md:flex-row justify-between mb-6 gap-4">
+            <input type="text" id="search" placeholder="Search parts..." 
+                class="p-2 border rounded w-full md:w-2/3">
+            <select id="categoryFilter" class="p-2 border rounded w-full md:w-1/3">
+                <option value="all">All Categories</option>
+                <option value="lacetti">Lacetti</option>
+                <option value="cobalt">Cobalt</option>
+                <option value="onix">Onix</option>
+                <option value="tracker">Tracker</option>
+            </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Products will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="Full Image">
+    </div>
+
+    <script>
+        const products = [
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Picture1.jpg", price: "$200", partNo: "9507 6520", stock: "Available", remark: "High quality" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9507 6520.jpg", price: "$200", partNo: "9456 8299", stock: "Low stock", remark: "OEM part" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9456 8299.jpg", price: "$200", partNo: "4259 2568", stock: "In stock", remark: "Genuine part" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 5214 4957.jpg", price: "$150", partNo: "5214 4957", stock: "Available", remark: "Durable" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 9477 4929.jpg", price: "$150", partNo: "9477 4929", stock: "Limited", remark: "Certified" },
+            { name: "Onix", category: "onix", image: "./images/Cobalt 9477 4929.jpg", price: "$180", partNo: "9477 4929", stock: "In stock", remark: "Best seller" },
+            { name: "Tracker", category: "tracker", image: "./images/Cobalt 9477 4929.jpg", price: "$120", partNo: "9477 4929", stock: "Out of stock", remark: "Popular choice" },
+        ];
+
+        const productGrid = document.getElementById("productGrid");
+        const searchInput = document.getElementById("search");
+        const categoryFilter = document.getElementById("categoryFilter");
+        const imageModal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        function renderProducts() {
+            productGrid.innerHTML = "";
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+
+            const filteredProducts = products.filter(product => 
+                (selectedCategory === "all" || product.category === selectedCategory) &&
+                product.name.toLowerCase().includes(searchTerm)
+            );
+
+            filteredProducts.forEach(product => {
+                productGrid.innerHTML += `
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded cursor-pointer" onclick="openModal('${product.image}')">
+                        <h2 class="text-xl font-bold mt-2">${product.name}</h2>
+                        <p><strong>Part No:</strong> ${product.partNo}</p>
+                        <p><strong>Price:</strong> ${product.price}</p>
+                        <p><strong>Stock:</strong> ${product.stock}</p>
+                        <p><strong>Remark:</strong> ${product.remark}</p>
+                    </div>
+                `;
+            });
+        }
+
+        function openModal(imageSrc) {
+            modalImage.src = imageSrc;
+            imageModal.style.display = "flex";
+        }
+
+        function closeModal() {
+            imageModal.style.display = "none";
+        }
+
+        searchInput.addEventListener("input", renderProducts);
+        categoryFilter.addEventListener("change", renderProducts);
+
+        renderProducts();
+    </script>
+</body>
+</html>
