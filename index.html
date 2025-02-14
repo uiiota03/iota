@@ -169,15 +169,21 @@
             /* Oq fon */
             padding: 80px 20px;
             text-align: center;
-            border-radius: 60px;
             /* Yuqori qismi radiusli */
             position: relative;
             margin-top: -50px;
             /* Hero section ustiga chiqadi */
             z-index: 2;
-            /* Hero section ustida bo‘lishi uchun */
-            box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
-            /* Chiroyli soyalar */
+            /* background: white;
+            padding: 20px; */
+            /* border-radius:0 0 80px 80px; */
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #products:hover {
+            /* transform: translateY(-10px); */
+            box-shadow: 0px 25px 60px rgba(0, 0, 0, 0.2);
         }
 
         #about {
@@ -198,9 +204,18 @@
             z-index: 1;
 
             margin-top: -50px;
-            border-radius: 40px 40px 0 0;
+            /* border-radius: 40px 40px 0 0; */
         }
 
+        #contact p {
+            font-size: 18px;
+        }
+
+        #contact .button {
+            background: transparent;
+            border: 1px solid white;
+            background-color: #e42b2b80;
+        }
         #contact::before {
             content: "";
             position: absolute;
@@ -416,11 +431,11 @@
 
     <section id="contact" class="text-white py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl text-red-500 font-bold text-center mb-10">Contact Us</h2>
+            <h1 class="text-5xl text-red-500 font-bold text-center mb-10">Contact Us</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <!-- Contact Information -->
                 <div class="text-left">
-                    <h3 class="text-2xl font-semibold mb-4" data-ru="Свяжитесь с нами" data-en="Get in Touch">Get in
+                    <h3 class="text-4xl font-semibold mb-4" data-ru="Свяжитесь с нами" data-en="Get in Touch">Get in
                         Touch</h3>
                     <p class="text-white-300 mb-2"><strong data-en="📍 Address" data-ru="📍 Адрес">📍 Address:</strong>
                         <span data-en="1 Vohid khaydarov str., Chirchiq, Tashkent region, Uzbekistan"
@@ -437,7 +452,7 @@
                             Working Hours:</strong> <span data-en="Mon - Fri: 8 AM - 5 PM"
                             data-ru="Пн - Пт: 8:00 - 17:00">Mon - Fri: 8 AM - 5 PM</span></p>
                     <a href="tel:+998942450606"
-                        class="bg-blue-500 px-6 py-3 rounded-lg shadow-md hover:bg-red-700 transition inline-block"
+                        class="button px-6 py-3 rounded-lg shadow-md hover:bg-red-700 transition inline-block"
                         data-en="Call Now" data-ru="Позвоните сейчас">Call
                         Now</a>
                 </div>
@@ -459,7 +474,8 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Company Info -->
                 <div>
-                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="About IOTA" data-ru="O IOTA">About IOTA</h3>
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="About IOTA" data-ru="O IOTA">About IOTA
+                    </h3>
                     <p class="text-gray-400"
                         data-en="We specialize in manufacturing high-quality automotive air conditioning parts, ensuring durability and performance."
                         data-ru="Мы специализируемся на производстве высококачественных деталей для автомобильных кондиционеров, гарантируя долговечность и производительность.">
@@ -468,7 +484,8 @@
                 </div>
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Quick Links" data-ru="Быстрые ссылки">Quick Links
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Quick Links" data-ru="Быстрые ссылки">
+                        Quick Links
                     </h3>
                     <ul>
                         <li><a href="#about" class="text-gray-400 hover:text-white" data-en="About Us"
@@ -481,7 +498,8 @@
                 </div>
                 <!-- Social Media -->
                 <div>
-                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Follow Us" data-ru="Подписывайтесь на нас">Follow Us
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Follow Us"
+                        data-ru="Подписывайтесь на нас">Follow Us
                     </h3>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
