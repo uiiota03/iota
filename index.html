@@ -7,6 +7,91 @@
     <title>AutoCool AC Parts | Premium Car Air Conditioning Components</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Asosiy ranglar */
+        :root {
+            --primary-color: rgb(255, 0, 0);
+            /* Qizil rang */
+            --primary-hover: rgba(255, 0, 0, 0.8);
+            /* Qizil rangning hover holati */
+            --secondary-color: #333;
+            /* Qora rang */
+            --background-color: #f9f9f9;
+            /* Orqa fon rangi */
+            --text-color: #333;
+            /* Asosiy matn rangi */
+            --white: #fff;
+            /* Oq rang */
+        }
+
+        /* Gradient fon */
+        .gradient-bg {
+            background: linear-gradient(to right, var(--primary-color), rgba(255, 0, 0, 0.8));
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            /* Logoningiz rangi */
+        }
+
+        header nav a {
+            color: var(--secondary-color);
+        }
+
+        header nav a:hover {
+            color: var(--primary-color);
+            /* Hover holatida qizil rang */
+        }
+
+        /* Tugmalar */
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            /* Hover holatida qizil rang */
+        }
+
+        /* Mahsulotlar kartalari */
+        .product-card {
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        footer a {
+            color: var(--white);
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            /* Hover holatida qizil rang */
+        }
+    </style>
     <style>
         .modal {
             position: fixed;
@@ -45,16 +130,105 @@
             background-color: white;
             cursor: pointer;
         }
+
+
+
+        #hero {
+            position: relative;
+            /* Overlay ustiga chiqishi uchun */
+            background-image: url(./images/5294337922025252184_119.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            /* border-radius: 0 0 -80px -80px; */
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* 50% qora filter */
+            z-index: 1;
+            /* Filter yuqorida bo‘lishi uchun */
+        }
+
+        /* Matn ham filter ustida bo‘lishi kerak */
+        #hero * {
+            position: relative;
+            z-index: 2;
+        }
+
+        #products {
+            background-color: white;
+            /* Oq fon */
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 60px;
+            /* Yuqori qismi radiusli */
+            position: relative;
+            margin-top: -50px;
+            /* Hero section ustiga chiqadi */
+            z-index: 2;
+            /* Hero section ustida bo‘lishi uchun */
+            box-shadow: 0px -10px 30px rgba(0, 0, 0, 0.1);
+            /* Chiroyli soyalar */
+        }
+
+        #about {
+            margin-top: -50px;
+            padding: 150px 0;
+        }
+
+        #contact {
+            position: relative;
+            /* Overlay to‘g‘ri chiqishi uchun */
+            background-image: url(./images/edf230616a1a40c6887121275a7bc886.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+            /* Orqa fon ochilib qolmasligi uchun */
+            z-index: 1;
+
+            margin-top: -50px;
+            border-radius: 40px 40px 0 0;
+        }
+
+        #contact::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.562);
+            /* 50% qora filter */
+            z-index: 0;
+            /* Overlay ko‘rinishi uchun */
+        }
+
+        #contact * {
+            position: relative;
+            z-index: 2;
+            /* Matn qora tus ustida chiqishi uchun */
+        }
     </style>
 </head>
 
 <body class="font-roboto bg-gray-100">
     <header class="bg-white shadow-md fixed w-full z-10 p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-extrabold text-blue-700">IOTA</h1>
+        <h1 class="text-2xl font-extrabold text-red-600">IOTA</h1> <!-- Qizil rang -->
         <nav class="hidden lg:flex space-x-6">
-            <a href="#about" class="hover:text-blue-600 font-semibold">About Us</a>
-            <a href="#products" class="hover:text-blue-600 font-semibold">Products</a>
-            <a href="#contact" class="hover:text-blue-600 font-semibold">Contact</a>
+            <a href="#about" class="hover:text-red-600 font-semibold">About Us</a>
+            <a href="#products" class="hover:text-red-600 font-semibold">Products</a>
+            <a href="#contact" class="hover:text-red-600 font-semibold">Contact</a>
         </nav>
         <select id="languageSwitcher" class="lang-selector">
             <option value="en">English</option>
@@ -62,9 +236,10 @@
         </select>
     </header>
 
-    <section class="h-screen gradient-bg text-white flex flex-col justify-center items-center text-center">
-        <h1 class="text-6xl font-bold mb-4" data-en="Premium Car AC Parts" data-ru="Премиум автокондиционеры">Premium
-            Car AC Parts</h1>
+    <section class="h-screen gradient-bg text-white flex flex-col justify-center items-center text-center" id="hero">
+        <h1 class="text-6xl font-bold mb-4"> <span data-en="Premium" data-ru="Премиум "
+                class="text-red-600 font-extrabold">Premium</span> <span data-en=" Car AC Parts"
+                data-ru="автокондиционеры">Car AC Parts</span> </h1>
         <p class="text-lg max-w-2xl"
             data-ru="Испытайте высокоэффективное охлаждение с нашими автомобильными компонентами кондиционирования воздуха мирового класса."
             data-en="Experience high-performance cooling with our world-class automotive AC components.">Experience
@@ -76,7 +251,7 @@
                 data-ru="Наши продукты" data-en="Our Products">Our
                 Products</a>
             <a href="#contact"
-                class="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-700 transition"
+                class="bg-gray-700 px-6 py-3 rounded-lg shadow-md hover:bg-gray-800 hover:text-white transition"
                 data-ru="Связаться с нами" data-en="Contact Us">Contact
                 Us</a>
         </div>
@@ -84,7 +259,7 @@
 
     <div id="products" class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-4xl font-extrabold text-center text-gray-900 mb-8"
+            <h1 class="text-4xl text-red-600 font-extrabold text-center text-gray-900 mb-8"
                 data-ru="Каталог деталей автомобильного кондиционера" data-en="Car AC Parts Catalog">Car AC Parts
                 Catalog</h1>
 
@@ -119,12 +294,12 @@
         <div class="container mx-auto px-6 lg:px-12">
             <!-- Section Header -->
             <div class="text-center mb-16">
-                <span class="text-blue-600 font-bold uppercase tracking-wide">Since 2010</span>
+                <span class="text-red-600 font-bold uppercase tracking-wide">Since 2010</span>
                 <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mt-4 mb-6" data-ru="О компании"
                     data-en="About Us">
                     About Us
                 </h2>
-                <div class="h-1.5 w-24 bg-blue-600 mx-auto rounded-full"></div>
+                <div class="h-1.5 w-24 bg-red-600 mx-auto rounded-full"></div>
             </div>
 
             <!-- Content Grid -->
@@ -132,25 +307,25 @@
                 <!-- Left Column - Image & Stats -->
                 <div class="relative group">
                     <div
-                        class="absolute inset-0 bg-blue-600/10 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500">
+                        class="absolute inset-0 bg-red-600/10 rounded-2xl transform rotate-3 group-hover:rotate-0 transition duration-500">
                     </div>
                     <img src="factory-image.jpg" alt="Our Factory"
                         class="rounded-2xl relative z-10 shadow-xl transform group-hover:-translate-y-2 transition duration-500">
 
                     <!-- Stats Overlay -->
                     <div class="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-sm p-6 rounded-b-2xl z-20">
-                        <div class="grid grid-cols-3 divide-x divide-blue-200">
+                        <div class="grid grid-cols-3 divide-x divide-red-200">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-blue-600">15+</div>
+                                <div class="text-2xl font-bold text-red-600">15+</div>
                                 <div class="text-sm text-gray-600" data-en="Years Experience" data-ru="Лет опыта">Years
                                 </div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-blue-600">500+</div>
+                                <div class="text-2xl font-bold text-red-600">500+</div>
                                 <div class="text-sm text-gray-600" data-en="Clients" data-ru="Клиентов">Clients</div>
                             </div>
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-blue-600">ISO</div>
+                                <div class="text-2xl font-bold text-red-600">ISO</div>
                                 <div class="text-sm text-gray-600" data-en="Certified" data-ru="Сертификат">9001</div>
                             </div>
                         </div>
@@ -162,7 +337,7 @@
                     <!-- Company Intro -->
                     <div class="space-y-4">
                         <h3 class="text-3xl font-bold text-gray-900">
-                            <span class="text-blue-600">IOTA</span>
+                            <span class="text-red-600">IOTA</span>
                             <span data-en="Automotive Cooling Excellence" data-ru="Эксперты в автомобильном охлаждении">
                                 Automotive Cooling Excellence
                             </span>
@@ -177,17 +352,17 @@
                     </div>
 
                     <!-- Quote Card -->
-                    <div class="border-l-4 border-blue-600 pl-6 py-4 bg-white shadow-sm">
+                    <div class="border-l-4 border-red-600 pl-6 py-4 bg-white shadow-sm">
                         <blockquote class="text-xl italic text-gray-700">
                             "{{Famous quote from your CEO}}"
                         </blockquote>
                         <div class="mt-4 flex items-center">
-                            <div class="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center">
+                            <div class="h-12 w-12 rounded-full bg-red-100 flex items-center justify-center">
                                 👨💼
                             </div>
                             <div class="ml-4">
                                 <div class="font-bold">Joonha Hwang</div>
-                                <div class="text-sm text-blue-600">CEO & Founder</div>
+                                <div class="text-sm text-red-600">CEO & Founder</div>
                             </div>
                         </div>
                     </div>
@@ -195,7 +370,7 @@
                     <!-- Key Features Grid -->
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                                 🔧
                             </div>
                             <h4 class="text-lg font-semibold mb-2" data-en="OEM Quality" data-ru="Качество OEM">
@@ -207,7 +382,7 @@
                             </p>
                         </div>
                         <div class="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                                 🌍
                             </div>
                             <h4 class="text-lg font-semibold mb-2" data-en="Global Reach"
@@ -225,7 +400,7 @@
 
             <!-- Certifications & Partners -->
             <div class="mt-16 text-center">
-                <h4 class="text-sm uppercase tracking-wide text-gray-500 mb-8" data-en="Trusted By"
+                <h4 class="text-sm uppercase tracking-wide text-gray-600 mb-8" data-en="Trusted By"
                     data-ru="Нам доверяют">
                     Trusted By
                 </h4>
@@ -239,37 +414,40 @@
         </div>
     </section>
 
-    <section id="contact" class="bg-gray-900 text-white py-16">
+    <section id="contact" class="text-white py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-10">Contact Us</h2>
+            <h2 class="text-4xl text-red-500 font-bold text-center mb-10">Contact Us</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <!-- Contact Information -->
                 <div class="text-left">
                     <h3 class="text-2xl font-semibold mb-4" data-ru="Свяжитесь с нами" data-en="Get in Touch">Get in
                         Touch</h3>
-                    <p class="text-gray-300 mb-2"><strong data-en="📍 Address" data-ru="📍 Адрес">📍 Address:</strong>
+                    <p class="text-white-300 mb-2"><strong data-en="📍 Address" data-ru="📍 Адрес">📍 Address:</strong>
                         <span data-en="1 Vohid khaydarov str., Chirchiq, Tashkent region, Uzbekistan"
                             data-ru="Узбекистан, Ташкентская область, г. Чирчик, ул. Вохида Хайдарова, 1">1 Vohid
-                            khaydarov str., Chirchiq, Tashkent
+                            Khaydarov str., Chirchiq, Tashkent
                             region, Uzbekistan</span>
                     </p>
-                    <p class="text-gray-300 mb-2"><strong data-en="📞 Phone" data-ru="📞 Телефон">📞 Phone:</strong>
+                    <p class="text-white-300 mb-2"><strong data-en="📞 Phone" data-ru="📞 Телефон">📞 Phone:</strong>
                         +998 94 245 0606</p>
-                    <p class="text-gray-300 mb-2"><strong data-ru="✉ Электронная почта" data-en="✉ Email">✉
+                    <p class="text-white-300 mb-2"><strong data-ru="✉ Электронная почта" data-en="✉ Email">✉
                             Email:</strong> <a href="mailto:info@iota.com"
                             class="text-blue-400 hover:underline">joonha.hwang@iotauz.com</a></p>
-                    <p class="text-gray-300 mb-4"><strong data-ru="🕒 Часы работы:" data-en="🕒 Working Hours:">🕒
+                    <p class="text-white-300 mb-4"><strong data-ru="🕒 Часы работы:" data-en="🕒 Working Hours:">🕒
                             Working Hours:</strong> <span data-en="Mon - Fri: 8 AM - 5 PM"
                             data-ru="Пн - Пт: 8:00 - 17:00">Mon - Fri: 8 AM - 5 PM</span></p>
                     <a href="tel:+998942450606"
-                        class="bg-blue-600 px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition inline-block"
+                        class="bg-blue-500 px-6 py-3 rounded-lg shadow-md hover:bg-red-700 transition inline-block"
                         data-en="Call Now" data-ru="Позвоните сейчас">Call
                         Now</a>
                 </div>
                 <!-- Map -->
                 <div>
-                    <iframe class="w-full h-72 rounded-lg shadow-lg" src="https://maps.google.com/embed" width="600"
-                        height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe class="w-full h-72 rounded-lg shadow-lg"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.147171212522!2d69.59367217586634!3d41.47148247125825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae61b56f69c289%3A0x5c5c2d48eaf5b1a7!2s1%20Vohid%20Khaydarov%20str.%2C%20Chirchiq%2C%20Tashkent%20region%2C%20Uzbekistan!5e0!3m2!1sen!2s!4v1707856789012!5m2!1sen!2s"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+
                 </div>
             </div>
         </div>
@@ -281,7 +459,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Company Info -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" data-en="About IOTA" data-ru="O IOTA">About IOTA</h3>
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="About IOTA" data-ru="O IOTA">About IOTA</h3>
                     <p class="text-gray-400"
                         data-en="We specialize in manufacturing high-quality automotive air conditioning parts, ensuring durability and performance."
                         data-ru="Мы специализируемся на производстве высококачественных деталей для автомобильных кондиционеров, гарантируя долговечность и производительность.">
@@ -290,7 +468,7 @@
                 </div>
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" data-en="Quick Links" data-ru="Быстрые ссылки">Quick Links
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Quick Links" data-ru="Быстрые ссылки">Quick Links
                     </h3>
                     <ul>
                         <li><a href="#about" class="text-gray-400 hover:text-white" data-en="About Us"
@@ -303,7 +481,7 @@
                 </div>
                 <!-- Social Media -->
                 <div>
-                    <h3 class="text-xl font-semibold mb-4" data-en="Follow Us" data-ru="Подписывайтесь на нас">Follow Us
+                    <h3 class="text-xl text-red-500 font-semibold mb-4" data-en="Follow Us" data-ru="Подписывайтесь на нас">Follow Us
                     </h3>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white">Facebook</a>
@@ -325,11 +503,11 @@
 
     <script>
         const products = [
-            { name: "Lacetti J200", category: "lacetti", image: "./images/Picture1.jpg", price: "$200", partNo: "9507 6520", stock: "Available", remark: "High quality" },
-            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9507 6520.jpg", price: "$200", partNo: "9456 8299", stock: "Low stock", remark: "OEM part" },
-            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9456 8299.jpg", price: "$200", partNo: "4259 2568", stock: "In stock", remark: "Genuine part" },
-            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 5214 4957.jpg", price: "$150", partNo: "5214 4957", stock: "Available", remark: "Durable" },
-            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 9477 4929.jpg", price: "$150", partNo: "9477 4929", stock: "Limited", remark: "Certified" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Picture1.jpg", price: "$10.65", partNo: "9507 6520", stock: "Available", remark: "High quality" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9507 6520.jpg", price: "$6.50", partNo: "9456 8299", stock: "Low stock", remark: "OEM part" },
+            { name: "Lacetti J200", category: "lacetti", image: "./images/Lacetti (J200) 9456 8299.jpg", price: "$6.20", partNo: "4259 2568", stock: "In stock", remark: "Genuine part" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 5214 4957.jpg", price: "$24.10", partNo: "5214 4957", stock: "Available", remark: "Durable" },
+            { name: "Cobalt (GSV-EM)", category: "cobalt", image: "./images/Cobalt 9477 4929.jpg", price: "$11.80", partNo: "9477 4929", stock: "Limited", remark: "Certified" },
             { name: "Onix", category: "onix", image: "./images/Cobalt 9477 4929.jpg", price: "$180", partNo: "9477 4929", stock: "In stock", remark: "Best seller" },
             { name: "Tracker", category: "tracker", image: "./images/Cobalt 9477 4929.jpg", price: "$120", partNo: "9477 4929", stock: "Out of stock", remark: "Popular choice" },
         ];
@@ -354,11 +532,11 @@
                 productGrid.innerHTML += `
                 <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
                     <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg cursor-pointer" onclick="openModal('${product.image}')">
-                    <h2 class="text-2xl text-blue-600 font-semibold mt-4">${product.name}</h2>
-                    <p class="text-gray-700"><strong>Part No:</strong> ${product.partNo}</p>
-                    <p class="text-gray-700"><strong>Price:</strong> ${product.price}</p>
-                    <p class="text-gray-700"><strong>Stock:</strong> ${product.stock}</p>
-                    <p class="text-gray-700"><strong>Remark:</strong> ${product.remark}</p>
+                    <h2 class="text-2xl text-left text-red-600 font-semibold mt-4">${product.name}</h2>
+                    <p class="text-gray-700 text-left"><strong>Part No:</strong> ${product.partNo}</p>
+                    <p class="text-gray-700 text-left"><strong>Price:</strong> ${product.price}</p>
+                    <p class="text-gray-700 text-left"><strong>Stock:</strong> ${product.stock}</p>
+                    <p class="text-gray-700 text-left"><strong>Remark:</strong> ${product.remark}</p>
                 </div>
             `;
             });
